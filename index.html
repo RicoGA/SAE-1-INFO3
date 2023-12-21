@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="ressources/css/pico-override.css">
+    <link rel="stylesheet" href="ressources/vendor/pico/css/pico.min.css">
+    <link rel="stylesheet" href="ressources/css/pico-override.css">
+    <link rel="stylesheet" href="ressources/css/stylesheet.css">
+    <script src="https://unpkg.com/htmx.org@1.9.9"
+            integrity="sha384-QFjmbokDn2DjBjq+fM+8LUIVrAgqcNW2s0PjAxHETgRn9l4fvX31ZxDxvwQnyMOX"
+            crossorigin="anonymous"></script>
+    <title>SEA</title>
+</head>
+<body>
+<main class="container">
+    <div>
+        <h1>SAE</h1>
+    </div>
+    <div class="grid">
+        <div>
+            <details>
+                <summary><kbd><u>Module Ping</u></kbd></summary>
+                <div>
+                    <form id="ping-tool-form" method="get">
+                        <div class="grid">
+                            <label for="ip">
+                                Adresse IP à ping :
+                                <input type="text" id="ip" name="ip" placeholder="ex : www.google.com ou 82.66.142.202"
+                                       required value="ricoco.ovh">
+                            </label>
+                        </div>
+                        <button hx-indicator="#ping-tool-loader" hx-get="ping-tool.php" hx-target="#pingResult"
+                                hx-include="#ping-tool-form"
+                                hx-on="click:  if (! document.getElementById('ip').validity.valid) document.getElementById('ip').reportValidity(); else document.getElementById('pingResult').innerHTML = '';">
+                            Faire un ping sur l'adresse IP
+                        </button>
+                    </form>
+                    <div id="ping-tool-loader" class="my-indicator">
+                        <div aria-label="Orange and tan hamster running in a metal wheel" role="img"
+                             class="wheel-and-hamster">
+                            <div class="wheel"></div>
+                            <div class="hamster">
+                                <div class="hamster__body">
+                                    <div class="hamster__head">
+                                        <div class="hamster__ear"></div>
+                                        <div class="hamster__eye"></div>
+                                        <div class="hamster__nose"></div>
+                                    </div>
+                                    <div class="hamster__limb hamster__limb--fr"></div>
+                                    <div class="hamster__limb hamster__limb--fl"></div>
+                                    <div class="hamster__limb hamster__limb--br"></div>
+                                    <div class="hamster__limb hamster__limb--bl"></div>
+                                    <div class="hamster__tail"></div>
+                                </div>
+                            </div>
+                            <div class="spoke"></div>
+                        </div>
+                    </div>
+                    <div id="pingResult"></div>
+                </div>
+            </details>
+            <details>
+                <summary><kbd><u>Module IPV6</u></kbd></summary>
+                <form id="ipv6-form" method="get">
+                    <div class="grid">
+                        <label for="ipv6">
+                            Adresse IP à traiter :
+                            <input type="text" id="ipv6" name="ipv6" placeholder="ex : 2001:0db8:85a3::8a2e:0370:7334"
+                                   required value="2001:0db8:85a3::8a2e:0370:7334">
+                        </label>
+                    </div>
+                    <button hx-indicator="#ipv6-loader" hx-get="ipv6.php" hx-target="#ipv6Result"
+                            hx-include="#ipv6-form"
+                            hx-on="click:  if (! document.getElementById('ipv6').validity.valid) document.getElementById('ipv6').reportValidity(); else document.getElementById('ipv6Result').innerHTML = '';">
+                        Traiter l'adresse IP
+                    </button>
+                </form>
+                <div id="ipv6-loader" class="my-indicator">
+                    <div aria-label="Orange and tan hamster running in a metal wheel" role="img"
+                         class="wheel-and-hamster">
+                        <div class="wheel"></div>
+                        <div class="hamster">
+                            <div class="hamster__body">
+                                <div class="hamster__head">
+                                    <div class="hamster__ear"></div>
+                                    <div class="hamster__eye"></div>
+                                    <div class="hamster__nose"></div>
+                                </div>
+                                <div class="hamster__limb hamster__limb--fr"></div>
+                                <div class="hamster__limb hamster__limb--fl"></div>
+                                <div class="hamster__limb hamster__limb--br"></div>
+                                <div class="hamster__limb hamster__limb--bl"></div>
+                                <div class="hamster__tail"></div>
+                            </div>
+                        </div>
+                        <div class="spoke"></div>
+                    </div>
+                </div>
+                <div id="ipv6Result"></div>
+            </details>
+            <details>
+                <summary><kbd><u>Module IPV4</u></kbd></summary>
+                <form id="ipv4-form" method="get">
+                    <div class="grid">
+                        <label for="ipv4">
+                            Adresse IP à traiter :
+                            <input type="text" id="ipv4" name="ipv4" placeholder="ex : 192.168.1.168"
+                                   required value="10.0.0.0">
+                        </label>
+                        <label for="mask">
+                            Masque :
+                            <input type="text" id="mask" name="mask" placeholder="ex : 24"
+                                   required value="16">
+                        </label>
+                        <label for="subnetworks">
+                            Nombre de sous-réseaux :
+                            <input type="number" id="subnetworks" name="subnetworks" placeholder="ex : 2"
+                                   required value="1" min="1">
+                        </label>
+                    </div>
+                    <div id="subnetworks-container">
+                        <label for="subnetwork-1">
+                            Taille du sous-réseau 1 :
+                            <input type="number" id="subnetwork-1" name="subnetwork-1" min="1" max="32" required>
+                        </label>
+                    </div>
+                    <button hx-indicator="#ipv4-loader" hx-get="ipv4.php" hx-target="#ipv4Result"
+                            hx-include="#ipv4-form"
+                            hx-on="click:  if (! document.getElementById('ipv4').validity.valid) document.getElementById('ipv4').reportValidity(); else document.getElementById('ipv4Result').innerHTML = '';">
+                        Traiter l'adresse IP
+                    </button>
+                </form>
+                <div id="ipv4-loader" class="my-indicator">
+                    <div aria-label="Orange and tan hamster running in a metal wheel" role="img"
+                         class="wheel-and-hamster">
+                        <div class="wheel"></div>
+                        <div class="hamster">
+                            <div class="hamster__body">
+                                <div class="hamster__head">
+                                    <div class="hamster__ear"></div>
+                                    <div class="hamster__eye"></div>
+                                    <div class="hamster__nose"></div>
+                                </div>
+                                <div class="hamster__limb hamster__limb--fr"></div>
+                                <div class="hamster__limb hamster__limb--fl"></div>
+                                <div class="hamster__limb hamster__limb--br"></div>
+                                <div class="hamster__limb hamster__limb--bl"></div>
+                                <div class="hamster__tail"></div>
+                            </div>
+                        </div>
+                        <div class="spoke"></div>
+                    </div>
+                </div>
+                <div id="ipv4Result"></div>
+            </details>
+        </div>
+    </div>
+    <footer class="grid">
+        <button id="change-theme-btn"
+                onclick="document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';">
+            Theme
+        </button>
+        <p>PAGIS Esteban GUINIOT-ALLALOU Corentin</p>
+    </footer>
+</main>
+<script>
+    document.getElementById('change-theme-btn').addEventListener('click', function () {
+        let darkThemeEnabled = document.body.classList.toggle('dark-theme');
+        localStorage.setItem('dark-theme-enabled', darkThemeEnabled);
+    });
+
+    const subNetworks = document.getElementById('subnetworks');
+    const subNetworksContainer = document.getElementById('subnetworks-container');
+
+    subNetworks.addEventListener('change', function () {
+        subNetworksContainer.innerHTML = '';
+        for (let i = 1; i <= subNetworks.value; i++) {
+            let label = document.createElement('label');
+            label.setAttribute('for', 'subnetwork-' + i);
+            label.innerHTML = 'Taille du sous-réseau ' + i + ' :';
+            let input = document.createElement('input');
+            input.setAttribute('type', 'number');
+            input.setAttribute('id', 'subnetwork-' + i);
+            input.setAttribute('name', 'subnetwork-' + i);
+            input.setAttribute('required', '');
+            input.setAttribute('min', '1')
+            input.setAttribute('max', '32')
+            subNetworksContainer.appendChild(label);
+            subNetworksContainer.appendChild(input);
+        }
+    });
+
+</script>
+</body>
+</html>
