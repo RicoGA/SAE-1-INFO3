@@ -1,0 +1,23 @@
+details > summary {
+	padding: 50px 0;
+	/*animation: rot 2s infinite ease-in-out;*/
+}
+
+details:hover > summary {
+	cursor: pointer;
+	animation: rot 2s infinite ease-in-out;
+}
+
+@keyframes rot {
+	0% {
+		transform: rotateX(-15deg) translateY(0px);
+	}
+	
+	50% {
+		transform: rotateX(-15deg) translateY(-10px);
+	}
+	
+	100% {
+		transform: rotateX(-15deg) translateY(0px);
+	}
+}
