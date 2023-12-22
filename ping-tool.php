@@ -1,6 +1,6 @@
 <?php
-	if ($_GET['ip']) {
-		$ip = $_GET['ip'];
+	if ($_POST['ip']) {
+		$ip = $_POST['ip'];
 		if (filter_var($ip, FILTER_VALIDATE_IP) || filter_var(gethostbyname($ip), FILTER_VALIDATE_IP)) {
 			$ping_result = shell_exec("ping -c 4 " . escapeshellarg($ip));
 			if ($ping_result !== null) {

@@ -44,8 +44,8 @@
 		}
 	}
 	
-	if ($_GET['ipv6']) {
-		$ip = $_GET['ipv6'];
+	if ($_POST['ipv6']) {
+		$ip = $_POST['ipv6'];
 		if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
 			echo "<p>Adresse IPv6 compressée : " . compressedIPv6($ip) . "</p>";
 			echo "<p>Adresse IPv6 étendue : " . extendedIPv6($ip)['ipv6'] . "</p>";
