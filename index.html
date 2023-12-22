@@ -61,7 +61,7 @@
                         <label for="ipv6">
                             Adresse IP à traiter :
                             <input type="text" id="ipv6" name="ipv6" placeholder="ex : 2001:0db8:85a3::8a2e:0370:7334"
-                                   value="2001:0db8:85a3::8a2e:0370:7334" required>
+                                   required>
                         </label>
                     </div>
                     <input type="submit" value="Traiter l'adresse IP">
@@ -152,7 +152,7 @@
 </main>
 <script>
     function handleFormSubmit(formId, resultDivId, loaderId) {
-        document.getElementById(formId).addEventListener('submit', function(event) {
+        document.getElementById(formId).addEventListener('submit', function (event) {
             event.preventDefault();
 
             var form = event.target;
