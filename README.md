@@ -56,7 +56,9 @@ Ou sinon, vous pouvez suivre le tutoriel ci-dessous :
 
 Pour utiliser le module de Ping, il faut se rendre sur la page d'accueil du site, puis cliquer sur le premier accordéon.
 L'interface proposera alors de rentrer une adresse IP ou un nom de domaine, il faut ainsi rentrer l'adresse IP ou le nom de domaine de la machine à pinger ensuite cliquer sur le bouton "Faire un ping sur l'adresse IP".
-Le résultat du ping s'affichera ainsi dans la zone de texte en dessous du bouton "Ping".
+Le résultat du ping s'affichera ainsi dans la zone de texte en dessous du bouton de validation.
+![ricoco ovh_SAE-1-INFO3_ (2)](https://github.com/RicoGA/SAE-1-INFO3/assets/101187637/33d20d36-64c6-4070-a2ef-5dbee0b23fec)
+
 Si l'adresse IP ou le nom de domaine est incorrect, un message d'erreur s'affichera.
 
 #### 4.2 Utiliser le module IPv6
@@ -65,12 +67,14 @@ Pour utiliser le module IPv6, il faut se rendre sur la page d'accueil du site, p
 L'interface proposera alors de rentrer une adresse IPv6, il faut ainsi rentrer l'adresse IPv6 à traiter ensuite cliquer sur le bouton "Traiter l'adresse IP".
 Le résultat du traitement s'affichera ainsi dans la zone de texte en dessous du bouton "Traiter l'adresse IP.
 L'adresse IPv6 est affichée compressée et étendue, ainsi que sa classe.
+![ricoco ovh_SAE-1-INFO3_ (1)](https://github.com/RicoGA/SAE-1-INFO3/assets/101187637/0b004ff5-dd12-455b-9457-ded04e737b63)
 Si l'adresse IPv6 est incorrect, un message d'erreur s'affichera.
 
 #### 4.3 Utiliser le module IPv4
 
 Pour utiliser le module IPv4, il faut se rendre sur la page d'accueil du site, puis cliquer sur le troisième accordéon.
 L'interface proposera alors de rentrer une adresse IPv4, il faut ainsi rentrer l'adresse IPv4 du réseau principal, le masque du réseau, ainsi que le nombre de sous-réseaux à créer, pour chaque sous-réseau, il faut rentrer la taille du sous-réseau.
+
 Une fois les informations rentrées, il faut cliquer sur le bouton "Calculer".
 Le résultat du calcul s'affichera sous forme de tableau en dessous du bouton "Calculer".
 Ce tableau contient les informations suivantes :
@@ -82,4 +86,7 @@ Ce tableau contient les informations suivantes :
 - Le masque au format décimal du sous-réseau
 - La plage d'adresses IP du sous-réseau
 - L'adresse de broadcast du sous-réseau
+
+![ricoco ovh_SAE-1-INFO3_](https://github.com/RicoGA/SAE-1-INFO3/assets/101187637/13c4c9eb-8e97-4508-bb53-823efa2ae951)
+
 Si l'adresse IPv4 ou le masque du réseau est incorrect, un message d'erreur s'affichera.
