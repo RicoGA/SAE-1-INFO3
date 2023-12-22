@@ -47,3 +47,5 @@ Une fois le git cloné, Nginx et PHP démarré, on peut se rendre sur `http://lo
 ![image](https://github.com/RicoGA/SAE-1-INFO3/assets/101187637/c561c156-ea5d-415f-b63f-f4391cb70d03)
 
 ### 4. Tutoriel d'utilisation du site
+
+Pour apprendre à utiliser la plateforme, le lien suivant permet un tutoriel intéractif : https://ior.ad/9GtO?iframeHash=trysteps-1
