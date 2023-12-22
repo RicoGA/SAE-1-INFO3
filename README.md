@@ -3,9 +3,12 @@ Ce dépôt Git héberge le code source de notre SAE
 
 Ce fichier README a pour but d'expliquer comment mettre en place le site sur une machine Linux puis d'expliquer comment utiliser les différents modules de la plateforme.
 
+## Table des Matières
+- Démarrage rapide
+- [Prerequis](#Prerequis)
 
 # 1. Installation sur une machine Linux
-## Prérequis :
+## Prerequis :
 - Une machine Linux
 - C'est tout
 
