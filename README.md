@@ -4,9 +4,10 @@ Ce dépôt Git héberge le code source de notre SAE
 Ce fichier README a pour but d'expliquer comment mettre en place le site sur une machine Linux puis d'expliquer comment utiliser les différents modules de la plateforme.
 
 ## Table des Matières
-- [Prérequis](#1.-prérequis)
-- [Installation de Nginx et de PHP](#1.-prérequis)
-- [Instllation des fichiers du site](#)
+- [Prérequis](#1-prérequis)
+- [Installation de Nginx et de PHP](#2-instllation-de-nginx-et-php)
+- [Instllation des fichiers du site](#3-instllation-des-fichiers-du-site)
+- [Tutoriel d'utilisation du site](#4-tutoriel-dutilisation-du-site)
 
 ### 1. Prérequis
 - Une machine Linux
