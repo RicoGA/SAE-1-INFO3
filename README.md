@@ -8,7 +8,7 @@ Ce fichier README a pour but d'expliquer comment mettre en place le site sur une
 - [Prérequis](#Prérequis)
 
 # 1. Installation sur une machine Linux
-## Prérequis
+## 1.1 Prérequis
 - Une machine Linux
 - C'est tout
 
@@ -16,6 +16,7 @@ La première étape pour installer la plateforme est de choisir une pile Web, le
 Pour ce tutoriel, on utilisera Nginx car nous sommes plus familiarisé avec Nginx, et car les configurations de Nginx sont plus faciles que celles d'Apache.
 Le site n'utilise pas de base de données donc il faudra seulement installer Nginx et PHP.
 
+## 1.2 Instllation de Nginx et PHP
 Pour installer Nginx et PHP, utiliser la commande ci-dessous (à noté qu'en fonction de la distribution Linux et de la version utilisée, la commande d'installation peuvent légèrement changer) :
 
 `apt update -y && apt upgrade -y && apt install nginx php-fpm`*
