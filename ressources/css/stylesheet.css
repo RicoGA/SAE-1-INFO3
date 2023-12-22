@@ -3,18 +3,6 @@
 	padding: 50px;
 }
 
-.htmx-request .my-indicator {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.htmx-request.my-indicator {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
 .wheel-and-hamster {
 	--dur: 1s;
 	position: relative;
@@ -305,6 +293,11 @@ footer {
 	justify-content: space-evenly;
 }
 
+@media (min-width: 992px) {
+	footer > p {
+		margin-left: auto;
+	}
+}
 #change-theme-btn {
 	font: inherit;
 	padding: 0.1em 0.25em;
