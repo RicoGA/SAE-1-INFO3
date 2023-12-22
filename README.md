@@ -5,10 +5,10 @@ Ce fichier README a pour but d'expliquer comment mettre en place le site sur une
 
 ## Table des Matières
 - Démarrage rapide
-- [Prerequis](#Prerequis)
+- [Prérequis](#Prérequis)
 
 # 1. Installation sur une machine Linux
-## Prerequis :
+## Prérequis
 - Une machine Linux
 - C'est tout
 
