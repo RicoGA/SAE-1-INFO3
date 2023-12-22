@@ -29,7 +29,7 @@ La configuration de base de Nginx suffit pour le site.
 
 On peut vérifier que Nginx et PHP fonctionne correctement avec les commandes :
 - `systemctl status nginx`
-- `systemctl status php-fpm8.2`*
+- `systemctl status php8.2-fpm`*
 
 *<sub>Le nom du service de PHP peut changer en fonction des versions, utiliser l'autocomplétion avec tab pour directement écrire le nom du service.</sub>
 
