@@ -118,4 +118,6 @@ Ce tableau contient les informations suivantes :
 - Le masque au format décimal du sous-réseau
 - La plage d'adresses IP du sous-réseau
 - L'adresse de broadcast du sous-réseau
-  Si l'adresse IPv4 ou le masque du réseau est incorrect, un message d'erreur s'affichera.
+Si l'adresse IPv4 ou le masque du réseau est incorrect, un message d'erreur s'affichera.
+
+Une version fonctionnelle du site est disponible [ici](https://ricoco.ovh/SAE-1-INFO3/).
