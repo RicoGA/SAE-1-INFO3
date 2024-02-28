@@ -211,6 +211,7 @@ de domaine de la machine à pinger ensuite cliquer sur le bouton "Faire un ping 
 Le résultat du ping s'affichera ainsi dans la zone de texte en dessous du bouton "Ping".
 Si l'adresse IP ou le nom de domaine est incorrect, un message d'erreur s'affichera.
 
+---
 #### Utiliser le module IPv6
 
 Pour utiliser le module IPv6, il faut se rendre sur la page d'accueil du site, puis cliquer sur le deuxième accordéon.
@@ -220,6 +221,7 @@ Le résultat du traitement s'affichera ainsi dans la zone de texte en dessous du
 L'adresse IPv6 est affichée compressée et étendue, ainsi que sa classe.
 Si l'adresse IPv6 est incorrect, un message d'erreur s'affichera.
 
+---
 #### Utiliser le module IPv4
 
 Pour utiliser le module IPv4, il faut se rendre sur la page d'accueil du site, puis cliquer sur le troisième accordéon.
@@ -240,4 +242,5 @@ Ce tableau contient les informations suivantes :
 - L'adresse de broadcast du sous-réseau
 Si l'adresse IPv4 ou le masque du réseau est incorrect, un message d'erreur s'affichera.
 
+---
 Une version fonctionnelle du site est disponible [ici](https://ricoco.ovh/SAE-1-INFO3/).
