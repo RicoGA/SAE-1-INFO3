@@ -137,7 +137,7 @@ listen.mode = 0660
 ```
 ---
 
-7B. Sur CentOS 7, par défaut, l'OS n'autorise pas les applications à faire des pings, ce problème est due au sécurité du Kernel, il a était mis à jour sur certaines versions plus récentes de CentOS pour ne plus poser de problème. Si le module de Ping ne fonctionne pas pour une adresse IP fronctionnelle (tel que *www.google.com** ou **www.free.fr**, voici comment régler le problème :
+7B. Sur CentOS 7, par défaut, l'OS n'autorise pas les applications à faire des pings, ce problème est due au sécurité du Kernel, il a était mis à jour sur certaines versions plus récentes de CentOS pour ne plus poser de problème. Si le module de Ping ne fonctionne pas pour une adresse IP fronctionnelle (tel que *www.google.com* ou *www.free.fr*, voici comment régler le problème :
 ```bash
 setenforce 0
 ```
