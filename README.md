@@ -124,7 +124,7 @@ chown -R root:nginx /var/lib/php
 ```bash
 nano /etc/php-fpm.d/www.conf
 ```
-On doit mettre à jour les variables de PHP comme suivant :
+On doit mettre à jour les variables de PHP comme ci-dessous, certaines lignes sont à décommenter :
 ```
 user = nginx
 group = nginx
@@ -137,8 +137,7 @@ listen.mode = 0660
 
 8. Ensuite, on démarre PHP-FPM et on ajoute PHP-FPM au démarrage de CentOS :
 ```bash
-systemctl start php-fpm
-systemctl enable php-fpm && systemctl status php-fpm
+systemctl start php-fpm && systemctl enable php-fpm && systemctl status php-fpm
 ```
 ---
 
