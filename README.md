@@ -82,7 +82,7 @@ yum -y update && yum -y upgrade
 
 2. Une fois l'OS mis à jour, nous avons besoin d'un serveur web pour que la plateforme web fonctionne, nous avons choisis Nginx car il est plus moderne que Apache et nous sommes plus à l'aise avec. Nous allons donc installer Nginx ainsi que des packets supplémentaires nécessaires au fonctionnement de la plateforme. 
 ```bash
-yum -y install nginx && yum -y install epel-release
+yum -y install epel-release && yum -y install nginx
 ```
 ---
 
