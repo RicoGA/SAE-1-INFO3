@@ -82,14 +82,13 @@ yum -y update && yum -y upgrade
 
 2. Une fois l'OS mis à jour, nous avons besoin d'un serveur web pour que la plateforme web fonctionne, nous avons choisis Nginx car il est plus moderne que Apache et nous sommes plus à l'aise avec. Nous allons donc installer Nginx ainsi que des packets supplémentaires nécessaires au fonctionnement de la plateforme. 
 ```bash
-yum -y install nginx epel-release
+yum -y install nginx && yum -y install epel-release
 ```
 ---
 
 3.  Ensuite, on démarre nginx, on ajoute le service au démarrage de la machine, et l'on vérifie qu'il fonctionne correctement :
 ```bash
-systemctl start nginx
-systemctl enable nginx && systemctl status nginx
+systemctl start nginx && systemctl enable nginx && systemctl status nginx
 ```
 
 Pour que Nginx démarre, il ne doit pas y avoir d'autre logiciels qui utilise le port 80 (notament Apache).
