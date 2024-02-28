@@ -1,89 +1,209 @@
+<br />
+<div align="center">
+  <img src="https://github.com/RicoGA/SAE-1-INFO3/assets/101187637/318d178b-74d2-4aef-87b5-fe6844f59ed4" alt="Logo">
+
+  <p align="center">
+	  Dépôt git du projet de la SAE 5 permettant d'installer et d'utiliser la plateforme web.
+    <br/>
+    <br/>
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Voir une démonstration »</strong></a>
+  </p>
+</div>
+
 # SAE-1-INFO3
 
 English version available [here](README_en.md)
 
-Ce dépôt Git héberge le code source de notre SAE
+Ce dépôt Git héberge le code source de notre SAE.
 
-Ce fichier README a pour but d'expliquer comment mettre en place le site sur une machine Linux puis d'expliquer comment
-utiliser les différents modules de la plateforme.
+Ce fichier README a pour but d'expliquer comment mettre en place le site sur une machine Linux utilisant <strong>CentOS 7</strong> et que d'expliquer comment utiliser les différents modules de la plateforme.
 
-## Table des Matières
+<details>
+	<summary>Table des matières</summary>
+	<ol>
+		<li>
+			<a href="#à-propos-de-la-sae">À propos de la SAE</a>
+			<ul>
+				<li><a href="#logiciels-utilisés">Logiciels utilisés</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#pour-commencer">Pour commencer</a>
+			<ul>
+				<li><a href="#prérequis">Prérequis</a></li>
+				<li><a href="#installation">Installation</a></li>
+				<li><a href="#configuration">Configuration</a></li>
+				<li><a href="#installation-des-fichiers">Installation des fichiers du site</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="#tutoriel-dutilisation-de-la-plateforme">Tutoriel d'utilisation du site</a>
+			<ul>
+				<li><a href="#utiliser-le-module-ping">Utiliser le module Ping</a></li>
+				<li><a href="#utiliser-le-module-ipv6">Utiliser le module IPv6</a></li>
+				<li><a href="#utiliser-le-module-ipv4">Utiliser le module IPv4</a></li>
+			</ul>
+		</li>
+	</ol>
+</details>
 
-- [Prérequis](#1-prérequis)
-- [Installation de Nginx et de PHP](#2-installation-de-nginx-et-php)
-- [Installation des fichiers du site](#3-installation-des-fichiers-du-site)
-- [Tutoriel d'utilisation du site](#4-tutoriel-dutilisation-du-site)
+## À propos de la SAE
 
-### 1. Prérequis
+Cette SAE a pour but de mettre en place 3 modules :
+- Le premier module est un module qui permet d'afficher des pings envoyer sur une adresse IP.
+- Le deuxième module permet d'afficher les différentes formes d'une addresse IPV6.
+- Le troisième et dernier module simule et calcule les adresses IPV4 d'un réseau local.
 
-- Une machine Linux
-- C'est tout
+### Logiciels utilisés
 
-La première étape pour installer la plateforme est de choisir une pile Web, le plus souvent, ce sera soit Apache, soit
-Nginx (ou Lighttpd).
-Pour ce tutoriel, on utilisera Nginx car nous sommes plus familiarisé avec Nginx, et, parce que les configurations de
-Nginx sont plus faciles que celles d'Apache.
-Le site n'utilise pas de base de données donc il faudra seulement installer Nginx et PHP.
+Les logiciels/applications que nous avons utilisés pour ce projet sont :
+- PHP
+- Nginx
+- HTML
+- PicoCSS
+  
+## Pour commencer
 
-### 2. Installation de Nginx et PHP
+Cette section concerne la partie technique pour installer la plateforme.
 
-Pour installer Nginx et PHP, utiliser la commande ci-dessous (à noter qu'en fonction de la distribution Linux et de la
-version utilisée, la commande d'installation peuvent légèrement changer) :
+### Prérequis
 
+Ce README se concentrera en particulier sur l'installation de la plateforme sur l'OS CentOS 7.
+La plateforme peut également fonctionnait sur d'autre distributions Linux à condition d'installer et de paramétrer les applications de la même manière.
+Les commandes pour installer les applications, ou bien les chemins d'accès sont succeptibles de changer sur d'autre distribution ou sur d'autre version de CentOS.
+
+### Installation
+
+1. La première étape avant l'insllation des applications nécessaire pour le bon fonctionnement de la plateforme est de mettre à jour l'OS :
 ```bash
-apt update -y && apt upgrade -y && apt install nginx php-fpm
+yum -y update && yum -y upgrade
+```
+---
+
+2. Une fois l'OS mis à jour, nous avons besoin d'un serveur web pour que la plateforme web fonctionne, nous avons choisis Nginx car il est plus moderne que Apache et nous sommes plus à l'aise avec. Nous allons donc installer Nginx ainsi que des packets supplémentaires nécessaires au fonctionnement de la plateforme. 
+```bash
+yum -y install nginx epel-release
+```
+---
+
+3.  Ensuite, on démarre nginx, on ajoute le service au démarrage de la machine, et l'on vérifie qu'il fonctionne correctement :
+```bash
+systemctl start nginx
+systemctl enable nginx && systemctl status nginx
 ```
 
-<sub>Un compte root peut être nécessaire.</sub>
+Pour que Nginx démarre, il ne doit pas y avoir d'autre logiciels qui utilise le port 80 (notament Apache).
+Le status de Nginx doit afficher 'active (running)' :
+![image](https://github.com/RicoGA/SAE-1-INFO3/assets/101187637/8178c75b-1fca-45ce-93e2-c0f1ee95c077)
 
-En fonction de la version de la distribution, la version de Nginx et de Php installée peut différer. Le site est
-compatible jusqu'à la version 5.1 de PHP et est compatible avec toutes les versions de Nginx disponible à ce jour.
-La configuration de base de Nginx suffit pour le site.
+Sinon, cela signifie que Nginx n'a pas pu démarrer.
 
-On peut vérifier que Nginx et PHP fonctionne correctement avec les commandes :
 
+---
+4. Une fois Nginx fonctionnel, nous allons installer PHP. Plus précisement, nous allons installer la version 8 de PHP qui n'est pas disponible par défaut sur CentOS 7. Nous allons donc le télécharger à partir d'un dépôt externe :
 ```bash
-systemctl status nginx
+yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+yum -y install yum-utils && yum-config-manager --enable remi-php80
+```
+D'abord on télécharge un manager de dépôt, puis on active PHP8.
+
+---
+5. Enfin, on installe PHP :
+```bash
+yum -y install php php-fpm php-gd php-imagick php-json php-opcache php-mcrypt php-curl php-mbstring php-intl php-dom php-zip
+```
+---
+
+### Configuration
+6. On vérifie que Nginx peut se "connecter" à PHP :
+```bash
+chown -R root:nginx /var/lib/php
+```
+---
+
+7. On édite les fichiers de configurations de PHP pour pouvoir se connecter à Nginx :
+```bash
+nano /etc/php-fpm.d/www.conf
+```
+On doit mettre à jour les variables de PHP comme suivant :
+```
+user = nginx
+group = nginx
+listen = /var/run/php-fpm/php-fpm.sock
+listen.owner = nginx
+listen.group = nginx
+listen.mode = 0660
+```
+---
+
+8. Ensuite, on démarre PHP-FPM et on ajoute PHP-FPM au démarrage de CentOS :
+```bash
+systemctl start php-fpm
+systemctl enable php-fpm && systemctl status php-fpm
+```
+---
+
+9. Enfin, on créer un VirtualHost pour Nginx :
+On créer le fichier de configuration Nginx :
+```bash
+nano /etc/nginx/conf.d/default.conf
 ```
 
+Les paramètres par défaut des VirtualHost de Nginx :
+```
+server {
+    listen       80;
+    server_name  _;
+
+    root   /usr/share/nginx/html;
+    index index.php index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+    error_page 404 /404.html;
+    error_page 500 502 503 504 /50x.html;
+
+    location = /50x.html {
+        root /usr/share/nginx/html;
+    }
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
+```
+---
+
+10. Pour finir, on vérifie que la configuration n'a pas de problème et on redémarre Nginx pour appliquer les nouveaux paramètres :
 ```bash
-systemctl status php8.2-fpm
+nginx -t && systemctl restart nginx
 ```
 
-<sub>Le nom du service de PHP peut changer en fonction des versions, utiliser l'autocomplétion avec tab pour directement
-écrire le nom du service.</sub>
-
-### 3. Installation des fichiers du site
-
-Une fois Nginx et PHP installé, il faut télécharger les fichiers source du dépôt git dans le dossier par défaut de
-travail de nginx qui est `/var/www/html`. Le dossier de travail par défaut de Nginx peut se trouver dans le fichier de
-configuration qui est accessible via `/etc/nginx/sites-available/default`, à la ligne 36 au paramètre `root` (voir
-screenshot ci-dessous) :
-![gist github com_xameeramir_a5cb675fb6a6a64098365e89a239541d](https://github.com/RicoGA/SAE-1-INFO3/assets/101187637/745a6dc7-5539-4068-8bdd-02533aca6067)
-
-Une fois le dossier de travail localisé, il faut cloner ce dépot git, il faut utiliser la commande suivante :
-
+### Installation des fichiers
+11. Une fois tout les logiciels installés et configurés, on peut installer les fichiers du site :
 ```bash
-git clone https://github.com/RicoGA/SAE-1-INFO3.git
+yum -y install git && cd /usr/share/nginx/html && git clone https://github.com/RicoGA/SAE-1-INFO3.git
 ```
 
-<sub>À noter qu'il faut avoir installé git au préalable :</sub>
+On clone le répertoire git dans le dossier de travail par défaut de Nginx.
 
-```bash
-apt install git -y
-```
+---
 
 Une fois le git cloné, Nginx et PHP démarré, on peut se rendre sur [le lien du site](http://localhost/SAE-1-INFO3/), si tout a
 correctement fonctionné le site devrait apparaitre :
 ![image](https://github.com/RicoGA/SAE-1-INFO3/assets/101187637/c561c156-ea5d-415f-b63f-f4391cb70d03)
 
-### 4. Tutoriel d'utilisation du site
-
+## Tutoriel d'utilisation de la plateforme
 Pour apprendre à utiliser la plateforme, vous pouvez suivre ce [tutoriel intéractif](https://ior.ad/9GtO?iframeHash=trysteps-1).
 
 Ou sinon, vous pouvez suivre le tutoriel ci-dessous :
 
-#### 4.1 Utiliser le module Ping
+#### Utiliser le module Ping
 
 Pour utiliser le module de Ping, il faut se rendre sur la page d'accueil du site, puis cliquer sur le premier accordéon.
 L'interface proposera alors de rentrer une adresse IP ou un nom de domaine, il faut ainsi rentrer l'adresse IP ou le nom
@@ -91,7 +211,7 @@ de domaine de la machine à pinger ensuite cliquer sur le bouton "Faire un ping 
 Le résultat du ping s'affichera ainsi dans la zone de texte en dessous du bouton "Ping".
 Si l'adresse IP ou le nom de domaine est incorrect, un message d'erreur s'affichera.
 
-#### 4.2 Utiliser le module IPv6
+#### Utiliser le module IPv6
 
 Pour utiliser le module IPv6, il faut se rendre sur la page d'accueil du site, puis cliquer sur le deuxième accordéon.
 L'interface proposera alors de rentrer une adresse IPv6, il faut ainsi rentrer l'adresse IPv6 à traiter ensuite cliquer
@@ -100,7 +220,7 @@ Le résultat du traitement s'affichera ainsi dans la zone de texte en dessous du
 L'adresse IPv6 est affichée compressée et étendue, ainsi que sa classe.
 Si l'adresse IPv6 est incorrect, un message d'erreur s'affichera.
 
-#### 4.3 Utiliser le module IPv4
+#### Utiliser le module IPv4
 
 Pour utiliser le module IPv4, il faut se rendre sur la page d'accueil du site, puis cliquer sur le troisième accordéon.
 L'interface proposera alors de rentrer une adresse IPv4, il faut ainsi rentrer l'adresse IPv4 du réseau principal, le
