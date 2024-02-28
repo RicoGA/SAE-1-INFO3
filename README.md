@@ -135,6 +135,13 @@ listen.mode = 0660
 ```
 ---
 
+7B. Sur CentOS 7, par défaut, l'OS n'autorise pas les applications à faire des pings, ce problème est due au sécurité du Kernel, il a était mis à jour sur certaines versions plus récentes de CentOS pour ne plus poser de problème. Si le module de Ping ne fonctionne pas pour une adresse IP fronctionnelle (tel que *www.google.com** ou **www.free.fr**, voici comment régler le problème :
+```bash
+setenforce 0
+```
+Cette solution permet de désactiver les sécurités liés au kernel pour que PHP puisse s'éxécuter sans problèmes, certaines méthodes différentes permettenet également de laisser PHP s'éxécuter sans désactiver les sécurités, mais ne permettent pas la même liberté d'éxécution du code via le shell.
+---
+
 8. Ensuite, on démarre PHP-FPM et on ajoute PHP-FPM au démarrage de CentOS :
 ```bash
 systemctl start php-fpm && systemctl enable php-fpm && systemctl status php-fpm
