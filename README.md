@@ -74,6 +74,8 @@ Les commandes pour installer les applications, ou bien les chemins d'accès sont
 
 ### Installation
 
+<strong>Toutes les commandes utilisées dans ce README sont éxécutées via un utilisateur root. Si le compte n'est pas root, vous pouvez utiliser *sudo* avant chaque commande.</strong>
+
 1. La première étape avant l'insllation des applications nécessaire pour le bon fonctionnement de la plateforme est de mettre à jour l'OS :
 ```bash
 yum -y update && yum -y upgrade
