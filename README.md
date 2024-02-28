@@ -101,7 +101,7 @@ Sinon, cela signifie que Nginx n'a pas pu démarrer.
 ---
 4. Une fois Nginx fonctionnel, nous allons installer PHP. Plus précisement, nous allons installer la version 8 de PHP qui n'est pas disponible par défaut sur CentOS 7. Nous allons donc le télécharger à partir d'un dépôt externe :
 ```bash
-yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 yum -y install yum-utils && yum-config-manager --enable remi-php80
 ```
 D'abord on télécharge un manager de dépôt, puis on active PHP8.
