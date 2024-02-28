@@ -18,7 +18,7 @@ Ce dépôt Git héberge le code source de notre SAE.
 
 Ce fichier README a pour but d'expliquer comment mettre en place le site sur une machine Linux utilisant <strong>CentOS 7</strong> et que d'expliquer comment utiliser les différents modules de la plateforme.
 
-<details>
+<details open>
 	<summary>Table des matières</summary>
 	<ol>
 		<li>
